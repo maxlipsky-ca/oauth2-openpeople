@@ -1,0 +1,19 @@
+{
+  "searchId": "",
+  "searchType": "Phone",
+  "searchCriteria": [
+    {
+      "searchName": "PhoneNumber",
+      "searchValue": ""
+    }
+  ],
+  "statusCode": "400",
+  "statusMessage": "Bad Request",
+  "errorMessages": [
+    "Phone number is required."
+  ],
+  "records": 0,
+  "searchCost": 0,
+  "searchDate": "2022-09-05T12:53:26.0417838-07:00",
+  "results": []
+}
