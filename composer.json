@@ -1,12 +1,12 @@
 {
-    "name": "maxlipsky/oauth2-openpeople",
+    "name": "maxlipsky-ca/oauth2-openpeople",
     "description": "Open People Search OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
         {
             "name": "Max Lipsky",
             "email": "maxlipsky@gmail.com",
-            "homepage": "https://github.com/maxlipsky"
+            "homepage": "https://github.com/maxlipsky-ca"
         }
     ],
     "keywords": [
