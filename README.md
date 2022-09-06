@@ -7,5 +7,5 @@ This package provides Instagram OAuth 2.0 support for the PHP League's [OAuth 2.
 To install, use composer:
 
 ```
-composer require maxlipsky/oauth2-openpeople
+composer require maxlipsky-ca/oauth2-openpeople
 ```
