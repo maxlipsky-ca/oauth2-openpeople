@@ -20,9 +20,15 @@ class OpenPeople extends AbstractProvider
 
     const OPTION_NAME_USERNAME = 'username';
     const OPTION_NAME_PASSWORD = 'password';
+    const OPTION_NAME_VERSION = 'version';
+    const DEFAULT_API_VERSION = '1';
+
+    const ACCESS_TOKEN_RESOURCE_OWNER_ID = null;
 
     protected string $username;
     protected string $password;
+    protected string $host = 'https://api.openpeoplesearch.com';
+    protected string $baseUrl;
 
     /**
      * @throws OpenPeopleProviderException
@@ -37,6 +43,7 @@ class OpenPeople extends AbstractProvider
             throw OpenPeopleProviderException::requiredOption(self::OPTION_NAME_PASSWORD);
         }
 
+        $this->baseUrl = sprintf('%s/api/v%s', $this->host, $options[self::OPTION_NAME_VERSION] ?? self::DEFAULT_API_VERSION);
         $this->username = $options[self::OPTION_NAME_USERNAME];
         $this->password = $options[self::OPTION_NAME_PASSWORD];
         $collaborators = ['optionProvider' => new OpenPeopleOptionProvider()];
@@ -44,17 +51,10 @@ class OpenPeople extends AbstractProvider
         parent::__construct($options, $collaborators);
     }
 
-    /**
-     * @var string Key used in a token response to identify the resource owner.
-     */
-    const ACCESS_TOKEN_RESOURCE_OWNER_ID = null;
-
-    /**
-     * Default host
-     *
-     * @var string
-     */
-    protected $host = 'https://api.openpeoplesearch.com';
+    public function getBaseUrl(): string
+    {
+        return $this->baseUrl;
+    }
 
     /**
      * @return string[]
@@ -73,7 +73,7 @@ class OpenPeople extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params): string
     {
-        return $this->host.'/api/v1/User/authenticate';
+        return $this->baseUrl.'/User/authenticate';
     }
 
     /**
